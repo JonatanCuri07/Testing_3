@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ImportIt-Configuration" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.mirai.importback.ImportbackApplication" />
+    <module name="importback" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

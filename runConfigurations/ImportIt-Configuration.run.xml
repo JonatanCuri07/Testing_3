@@ -2,6 +2,7 @@
   <configuration default="false" name="ImportIt-Configuration" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="com.mirai.importback.ImportbackApplication" />
     <module name="importback" />
+    <extension name="coverage" sample_coverage="false" track_test_folders="true" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

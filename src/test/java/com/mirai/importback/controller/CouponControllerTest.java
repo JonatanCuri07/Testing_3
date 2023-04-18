@@ -35,12 +35,12 @@ public class CouponControllerTest {
     private CouponServiceImpl couponService;
     private List<Coupon> couponList;
 
-    static final String couponTitle = "First Order";
+    static final String COUPON_TITLE = "First Order";
 
     @BeforeEach
     void setUp(){
         couponList = new ArrayList<>();
-        couponList.add(new Coupon(1L,couponTitle,"10","ABC123",
+        couponList.add(new Coupon(1L, COUPON_TITLE,"10","ABC123",
                 "09/09/09","true","*Coupons are not accumulative"));
         couponList.add(new Coupon(2L,"Black Friday Week","50","ACD090",
                 "09/09/09","true","*Coupons are not accumulative. Only for travelers mode"));
@@ -57,7 +57,7 @@ public class CouponControllerTest {
     @Test
     void findCouponsByIdTest() throws Exception{
         Long couponId = 1L;
-        Coupon coupon = new Coupon(1L, couponTitle,"10","ABC123",
+        Coupon coupon = new Coupon(1L, COUPON_TITLE,"10","ABC123",
                 "09/09/09","true","*Coupons are not accumulative");
 
         given(couponService.getById(couponId)).willReturn(Optional.of(coupon));
@@ -66,7 +66,7 @@ public class CouponControllerTest {
 
     @Test
     void insertCouponsTest() throws Exception{
-        Coupon coupon = new Coupon(1L,couponTitle,"10","ABC123",
+        Coupon coupon = new Coupon(1L,COUPON_TITLE,"10","ABC123",
                 "09/09/09","true","*Coupons are not accumulative");
 
         mockMvc.perform(post("/api/coupon")
@@ -104,7 +104,7 @@ public class CouponControllerTest {
     @Test
     void findByCodeTest() throws Exception{
         String couponCode = "ABC123";
-        Coupon coupon = new Coupon(1L, couponTitle,"10","ABC123",
+        Coupon coupon = new Coupon(1L, COUPON_TITLE,"10","ABC123",
                 "09/09/09","true","*Coupons are not accumulative");
 
         given(couponService.findByCode(couponCode)).willReturn(coupon);

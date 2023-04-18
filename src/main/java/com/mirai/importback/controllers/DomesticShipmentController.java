@@ -28,7 +28,7 @@ public class DomesticShipmentController {
     public ResponseEntity<List<DomesticShipment>> findAll(){
         try {
             List<DomesticShipment> domesticShipment= domesticShipmentService.getAll();
-            if(domesticShipment.size()>0)
+            if(!domesticShipment.isEmpty())
                 return new ResponseEntity<>(domesticShipment, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

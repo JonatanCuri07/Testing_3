@@ -31,7 +31,7 @@ public class StoreProductsController {
     public ResponseEntity<List<StoreProducts>> findAll(){
         try {
             List<StoreProducts> storeProducts= storeProductsService.getAll();
-            if(storeProducts.size()>0)
+            if(!storeProducts.isEmpty())
                 return new ResponseEntity<>(storeProducts, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

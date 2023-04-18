@@ -30,7 +30,7 @@ public class ProductWholesaleController {
     public ResponseEntity<List<ProductWholesale>> findAll(){
         try {
             List<ProductWholesale> productWholesale= productWholesaleService.getAll();
-            if(productWholesale.size()>0)
+            if(!productWholesale.isEmpty())
                 return new ResponseEntity<>(productWholesale, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

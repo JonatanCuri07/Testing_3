@@ -31,7 +31,7 @@ public class TravelerOrdersController {
     public ResponseEntity<List<TravelerOrders>> findAll(){
         try {
             List<TravelerOrders> travelerOrders= travelerOrdersService.getAll();
-            if(travelerOrders.size()>0)
+            if(!travelerOrders.isEmpty())
                 return new ResponseEntity<>(travelerOrders, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

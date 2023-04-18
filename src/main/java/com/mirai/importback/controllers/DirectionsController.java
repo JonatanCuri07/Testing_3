@@ -29,7 +29,7 @@ public class DirectionsController {
     public ResponseEntity<List<Directions>> findAll(){
         try {
             List<Directions> directions= directionsService.getAll();
-            if(directions.size()>0)
+            if(!directions.isEmpty())
                 return new ResponseEntity<>(directions, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

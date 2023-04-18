@@ -29,7 +29,7 @@ public class CouponController {
     public ResponseEntity<List<Coupon>> findAll(){
         try {
             List<Coupon> coupon= couponService.getAll();
-            if(coupon.size()>0)
+            if(!coupon.isEmpty())
                 return new ResponseEntity<>(coupon, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

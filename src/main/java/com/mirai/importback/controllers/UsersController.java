@@ -33,7 +33,7 @@ public class UsersController {
     public ResponseEntity<List<Users>> findAll(){
         try {
             List<Users> users= usersService.getAll();
-            if(users.size()>0)
+            if(!users.isEmpty())
                 return new ResponseEntity<>(users, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

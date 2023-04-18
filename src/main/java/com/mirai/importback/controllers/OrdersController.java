@@ -32,7 +32,7 @@ public class OrdersController {
     public ResponseEntity<List<Orders>> findAll(){
         try {
             List<Orders> orders= ordersService.getAll();
-            if(orders.size()>0)
+            if(!orders.isEmpty())
                 return new ResponseEntity<>(orders, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

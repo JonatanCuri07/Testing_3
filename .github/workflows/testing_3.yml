@@ -1,0 +1,33 @@
+name: Testeo_3_0
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configurar Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.17
+
+      - name: Almacenar en caché dependencias de Maven
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Ejecutar pruebas unitarias con Maven
+        run: mvn test -Dtest="**/unitTests/*.java"
+
+      - name: Cargar resultados de las pruebas
+        uses: actions/upload-artifact@v2
+        with:
+          name: resultados-de-pruebas
+          path: target/surefire-reports
